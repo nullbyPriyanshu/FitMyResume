@@ -6,11 +6,9 @@
   "scripts": {
     "dev": "node --watch app.js",
     "start": "node app.js",
-
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
     "docker:logs": "docker compose logs -f",
-
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "studio": "drizzle-kit studio"
@@ -18,7 +16,6 @@
   "description": "Universal backend starter for Express + Drizzle ORM.",
   "author": "",
   "license": "MIT",
-
   "devDependencies": {
     "@types/express": "^5.0.5",
     "@types/node": "^24.10.1",
@@ -26,14 +23,15 @@
     "drizzle-kit": "^0.31.7",
     "tsx": "^4.20.6"
   },
-
   "dependencies": {
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.44.7",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
     "nanoid": "^5.1.6",
+    "pdf-parse": "^1.1.1",
     "pg": "^8.16.3",
     "postgres": "^3.4.7",
     "zod": "^4.1.13"
