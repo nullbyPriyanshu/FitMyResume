@@ -26,13 +26,10 @@ RULES:
 `;
 }
 
-// Try to extract JSON even if the model wraps it with text
 function extractJson(text) {
   try {
-    // if it's pure JSON
     return JSON.parse(text);
   } catch {
-    // try to grab the first {...} block
     const match = text.match(/\{[\s\S]*\}/);
     if (!match) return null;
     try {
@@ -52,9 +49,9 @@ export const handleRewrite = async (req, res) => {
 
   try {
     const prompt = buildRewritePrompt(text, job);
-    const raw = await askLLM(prompt); // raw string from LLM
+    const raw = await askLLM(prompt); 
 
-    console.log('LLM raw output:', raw); // helpful in backend logs
+    console.log('LLM raw output:', raw); 
 
     const parsed = extractJson(raw);
 
@@ -65,7 +62,6 @@ export const handleRewrite = async (req, res) => {
       });
     }
 
-    // This is what your frontend expects
     return res.json({
       bullets: parsed.bullets,
       summary: parsed.summary,
